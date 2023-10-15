@@ -1,21 +1,20 @@
-## ⭐ SQL SERVER - SECTION 4 ⭐
+## ⭐ <span style="color: #0063B2FF;">SQL SERVER - SECTION 4</span>⭐
 
-## 🔗 CTE's Common Table Expressions:
+## 🔗 <span style="color: #0063B2FF;">CTE - COMMON TABLE EXPRESSIONS</span>
 
-The **common table expression (CTE)** is a powerful construct in SQL that helps simplify a query. CTEs work as **virtual tables** (with records and columns), created during the execution of a query, used by the query, and eliminated after query execution. CTEs often act as a bridge to transform the data in source tables to the format expected by the query.
+<span style="color: #0063B2FF;"></span>
+<span style="color: #ee6c4d;"></span>
+
+The <span style="color: #ee6c4d;">**Common Table Expression - CTE**</span> is a powerful construct in SQL that helps simplify a query. CTEs work as <span style="color: #ee6c4d;">**virtual tables**</span> (with records and columns), created during the execution of a query, used by the query, and eliminated after query execution. CTEs often act as a <span style="color: #ee6c4d;">bridge</span> to transform the data in source tables to the format expected by the query.
 <br>
-A common table expression, or CTE, is a temporary named result set created from a simple SELECT statement that can be used in a subsequent SELECT statement. Each SQL CTE is like a named query, whose result is stored in a virtual table (a CTE) to be referenced later in the main query.
 <br>
-The best way to learn common table expressions is through practice. I recommend LearnSQL.com's interactive Recursive Queries course. It contains over 100 exercises that teach CTEs starting with the basics and progressing to advanced topics like recursive common table expressions.
-<br>
-Topics of this section:
+A <span style="color: #ee6c4d;">**Common Table Expression - CTE**</span> is a temporary named result set created from a simple SELECT statement that can be used in a subsequent SELECT statement. Each SQL CTE is like a named query, whose result is stored in a virtual table (a CTE) to be referenced later in the main query.
 
-- 1. CTE
-- 2. Recursive CTE
-
-### 1. CTE COMMON TABLE EXPRESSION
-
+<details>
+ <summary><h3 style="color: #0063B2FF;">1. CTE COMMON TABLE EXPRESSION</h3>
+ 
 You can define two or more CTEs and use them in the main query. In the next example, we show you how to divide and organize a long query using SQL CTEs. By naming different parts of the query, CTEs make the query easy to read.
+ </summary>
 
 ```sql
 WITH
@@ -74,9 +73,17 @@ WITH
 
 ![Screenshot](/assets/cte.png?raw=true "cte")
 
-### 2. RECURSIVE CTE
+</details>
 
-SQL Server offers **recursive Common Table Expressions**. A recursive Common Table Expression (CTE) in SQL Server allows you to perform recursive queries on hierarchical or graph-based data structures, such as organizational charts, family trees, transportation networks, etc. Recursive queries are used to **loop** through relationships between the data elements.
+<details>
+<summary><h3 style="color: #0063B2FF;">2. RECURSIVE CTE</h3>
+
+SQL Server offers <span style="color: #ee6c4d;">**Recursive CTE Common Table Expressions**</span>. A recursive Common Table Expression (CTE) in SQL Server allows you to perform recursive queries on hierarchical or graph-based data structures, such as organizational charts, family trees, transportation networks, etc.
+<br>
+<br>
+Recursive queries are used to <span style="color: #ee6c4d;">**loop**</span> through relationships between the data elements.
+
+</summary>
 
 ```sql example 1
 WITH
@@ -122,3 +129,5 @@ WITH
 ```
 
 ![Screenshot](/assets/recursive_cte.png?raw=true "recursive cte")
+
+</details>

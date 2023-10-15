@@ -1,28 +1,28 @@
-## ⭐ SQL SERVER - SECTION 5 ⭐
+## ⭐ <span style="color: #0063B2FF;">SQL SERVER - SECTION 5</span>⭐
 
-## 🔗 TEMPORARY TABLES:
+## 🔗 <span style="color: #0063B2FF;">TEMPORARY TABLES</span>
+
+<span style="color: #0063B2FF;"></span>
+<span style="color: #ee6c4d;"></span>
 
 A temporary SQL table, also known as a temp table, is a table that is created and used within the context of a specific session or transaction in a database management system. It is designed to store temporary data that is needed for a short duration and does not require a permanent storage solution.
 <br>
-Temporary tables are created on-the-fly and are typically used to perform complex calculations, store intermediate results, or manipulate subsets of data during the execution of a query or a series of queries.
-<br>
-These temporary tables have a specific scope and lifespan associated with them. They are only accessible within the session or transaction that created them and are automatically dropped or deleted when the session or transaction ends or when explicitly dropped by the user.
-<br>
-This temporary nature of the tables makes them suitable for managing data that is transient and does not need to persist beyond the immediate task at hand.
 <br>
 Temporary tables in SQL provide a convenient way to break down complex problems into smaller, more manageable steps. They allow for the separation of data processing stages, which can improve performance, enhance code readability, and simplify query logic.
 <br>
-Temporary tables can be used in various database systems such as MySQL, PostgreSQL, Oracle, SQL Server, and others, although the syntax and features may vary slightly between implementations.
 <br>
-Topics of this section:
+Temporary tables can be used in various database systems such as MySQL, PostgreSQL, Oracle, SQL Server, and others, although the syntax and features may vary slightly between implementations.
 
-- 1. Temp tables
-- 2. CREATE() INSERT()
-- 3. TRUNCATE()
-- 4. UPDATE()
-- 5. DELETE()
+<details>
+<summary><h3 style="color: #0063B2FF;">1. TEMPORARY TABLES</h3>
 
-### 1. TEMPORARY TABLES
+<span style="color: #ee6c4d;">Temporary tables</span> are created on-the-fly and are typically used to perform complex calculations, store intermediate results, or manipulate subsets of data during the execution of a query or a series of queries.
+
+These temporary tables have a specific scope and lifespan associated with them. They are only accessible within the session or transaction that created them and are automatically dropped or deleted when the session or transaction ends or when explicitly dropped by the user.
+
+This temporary nature of the tables makes them suitable for managing data that is transient and does not need to persist beyond the immediate task at hand.
+
+</summary>
 
 ```sql
 SELECT -- temporary table Sales
@@ -60,11 +60,16 @@ DROP TABLE #Top10Sales -- drop temporary table
 
 ![Screenshot](/assets/temp_table.png?raw=true "temporary table")
 
-### 2. CREATE & INSERT ON TEMPORARY TABLES
+</details>
+
+<details>
+<summary><h3 style="color: #0063B2FF;">2. CREATE & INSERT ON TEMPORARY TABLES</h3>
 
 You can use temporary tables to optimize complex or resource-intensive queries. By breaking down a complex query into multiple steps using temporary tables, we can improve query performance by reducing the amount of data processed at each stage or by precomputing intermediate results.
 
 Temporary tables allow us to store and reuse intermediate query results, avoiding redundant computations. Here's an example:
+
+</summary>
 
 ```sql
 -- temporary table #Sales
@@ -169,9 +174,14 @@ DROP TABLE #PurchaseMinusTop10
 
 ![Screenshot](/assets/tp_create_insert.png?raw=true "temporary tables create & insert")
 
-### 3. TRUNCATE()
+</details>
+
+<details>
+<summary><h3 style="color: #0063B2FF;">3. TRUNCATE()</h3>
 
 Removes all rows from a table or specified partitions of a table, without logging the individual row deletions. TRUNCATE TABLE is similar to the DELETE statement with no WHERE clause; however, TRUNCATE TABLE is faster and uses fewer system and transaction log resources.
+
+</summary>
 
 ```sql
 -- temp table for #Orders
@@ -260,7 +270,10 @@ DROP TABLE #OrdersMinusTop10
 
 ![Screenshot](/assets/tp_truncate.png?raw=true "temporary tables truncate")
 
-### 4. UPDATE()
+</details>
+
+<details>
+<summary><h3 style="color: #0063B2FF;">4. UPDATE()</h3></summary>
 
 ```SQL
 CREATE TABLE #SalesOrders (
@@ -326,10 +339,15 @@ DROP TABLE #SalesOrders
 
 ![Screenshot](/assets/tp_update.png?raw=true "temporary tables update")
 
-### 5. DELETE()
+</details>
+
+<details>
+<summary><h3 style="color: #0063B2FF;">5. DELETE()</h3></summary>
 
 ```sql
 
 ```
 
 ![Screenshot](/assets/.png?raw=true "temporary tables delete")
+
+</details>
