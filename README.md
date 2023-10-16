@@ -1,6 +1,20 @@
-## ⭐ React Projects ⭐
+## ⭐ SQL SERVER TUTORIAL ⭐
 
-This repository contains all the projects developed in React Javascript as part of a list of assignments on the following tutorials: **React for beginners** from **FreeCodeCamp** and **Developedbyed** on Youtube, as well as individual capstone projects by using the following languages **HTML5, Sass, CSS3, Tailwindcss, JavaScript, NodeJs, Django, React and Redux**.
+This repository contains the notes of the advanced SQL tutorial: **The Advanced SQL Server Masterclass For Data Analysis** from **FreeCodeCamp** and **Developedbyed** on Youtube, as well as individual capstone projects by using the following languages **HTML5, Sass, CSS3, Tailwindcss, JavaScript, NodeJs, Django, React and Redux**.
+
+Here's a look at just some of the things you'll get out of this course:
+
+- Make the leap to Senior Analyst by mastering advanced data wrangling techniques with SQL
+- Become the resident SQL expert on your team
+- Perform nuanced analysis of large datasets with Window Functions
+- Use subqueries, CTEs and temporary tables to handle complex, multi-stage queries and data transformations
+- Write efficient, optimized SQL
+- Leverage indexes to speed up your SQL queries
+- Supercharge your SQL knowledge with procedural programming techniques like variables and IF statements
+- Program database objects like user defined functions and stored procedures that will make life easier for you AND your teammates
+- Master useful tips and tricks not found in most database courses, like Dynamic SQL
+- Gain an intuition for what technique to apply and when
+- Train your brain with tons of hands-on exercises that reflect real-world business scenarios
 
 ## 🔗 Live Sites URL:
 

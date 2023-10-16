@@ -1,21 +1,16 @@
-## ⭐ SQL SERVER - SECTION 3 ⭐
+## ⭐ <span style="color: #0063B2FF;">SQL SERVER - SECTION 3</span>⭐
 
-## 🔗 SUB-QUERIES:
+## 🔗 <span style="color: #0063B2FF;">SUB-QUERIES</span>
 
-A sub-query is also called an **inner query** or **inner select**, while the statement containing a sub-query is also called an **outer query** or **outer select**.
+A sub-query is also called an <b style="color: #ee6c4d;">inner query</b> or <b style="color: #ee6c4d;">inner select</b>, while the statement containing a sub-query is also called an <b style="color: #ee6c4d;">outer query</b> or <b style="color: #ee6c4d;">outer select</b>.
 Many Transact-SQL statements that include sub-queries can be alternatively formulated as joins. Other questions can be posed only with sub-queries. In Transact-SQL, there's usually no performance difference between a statement that includes a sub-query and a semantically equivalent version that doesn't. For architectural information on how SQL Server processes queries, see SQL statement processing. However, in some cases where existence must be checked, a join yields better performance. Otherwise, the nested query must be processed for each result of the outer query to ensure elimination of duplicates. In such cases, a join approach would yield better results.
 
-Topics of this section:
+<details>
+ <summary><h3 style="color: #0063B2FF;">1. SCALAR SUB-QUERIES</h3>
 
-- 1. Scalar Sub-queries
-- 2. Correlated Sub-queries
-- 3. Exists
-- 4. For XML path
-- 5. Pivot
+A <b style="color: #ee6c4d;">scalar sub-query</b> is a sub-query that selects only one column or expression and returns one row. A scalar sub-query can be used anywhere in an SQL query that a column or expression can be used.
 
-### 1. SCALAR SUB-QUERIES
-
-A **scalar sub-query** is a sub-query that selects only one column or expression and returns one row. A scalar sub-query can be used anywhere in an SQL query that a column or expression can be used.
+</summary>
 
 ```sql
 SELECT
@@ -30,9 +25,12 @@ SELECT
     WHERE VacationHours / (SELECT MAX(VacationHours) FROM AdventureWorks2019.HumanResources.Employee) >= 0.8
 ```
 
-<!-- ![Screenshot](/assets/over.png?raw=true "over") -->
+![Screenshot](/assets/over.png?raw=true "over")
 
-### 2. CORRELATED SUB-QUERIES
+</details>
+
+<details>
+ <summary><h3 style="color: #0063B2FF;">2. CORRELATED SUB-QUERIES</h3></summary>
 
 ```sql
 SELECT
@@ -61,10 +59,16 @@ SELECT
 
 ![Screenshot](/assets/correlated_sub.png?raw=true "correlated sub-queries")
 
-### 3. EXISTS()
+</details>
 
-The **EXISTS** operator is used to test for the existence of any record in a subquery.
-The **EXISTS** operator returns TRUE if the subquery returns one or more records.
+<details>
+ <summary><h3 style="color: #0063B2FF;">3. EXISTS()</h3>
+
+The <b style="color: #ee6c4d;">EXISTS</b> operator is used to test for the existence of any record in a subquery.
+<br>
+The <b style="color: #ee6c4d;">EXISTS</b> operator returns TRUE if the subquery returns one or more records.
+
+</summary>
 
 ```sql
 SELECT
@@ -87,9 +91,14 @@ SELECT
 
 ![Screenshot](/assets/exists.png?raw=true "exists")
 
-### 4. FOR XML PATH()
+</details>
 
-In SQL Server, **STUFF** with **SELECT FOR XML PATH** statement is widely used to concatenate strings from multiple rows into a single row value.
+<details>
+ <summary><h3 style="color: #0063B2FF;">4. FOR XML PATH()</h3>
+
+In SQL Server, <b style="color: #ee6c4d;">STUFF</b> with <b style="color: #ee6c4d;">SELECT FOR XML PATH</b> statement is widely used to concatenate strings from multiple rows into a single row value.
+
+</summary>
 
 ```SQL
 SELECT
@@ -115,9 +124,14 @@ SELECT
 
 ![Screenshot](/assets/xml_path.png?raw=true "xml_path")
 
-### 5. PIVOT()
+</details>
 
-You can use the **PIVOT** and **UNPIVOT** relational operators to change a table-valued expression into another table. **PIVOT** rotates a table-valued expression by turning the unique values from one column in the expression into multiple columns in the output. And PIVOT runs aggregations where they're required on any remaining column values that are wanted in the final output. UNPIVOT carries out the opposite operation to PIVOT by rotating columns of a table-valued expression into column values.
+<details>
+ <summary><h3 style="color: #0063B2FF;">5. PIVOT()</h3>
+
+You can use the <b style="color: #ee6c4d;">PIVOT</b> and <b style="color: #ee6c4d;">UNPIVOT</b> relational operators to change a table-valued expression into another table. <b style="color: #ee6c4d;">PIVOT</b> rotates a table-valued expression by turning the unique values from one column in the expression into multiple columns in the output. And PIVOT runs aggregations where they're required on any remaining column values that are wanted in the final output. <b style="color: #ee6c4d;">UNPIVOT</b> carries out the opposite operation to PIVOT by rotating columns of a table-valued expression into column values.
+
+</summary>
 
 ```sql
 SELECT
@@ -152,3 +166,5 @@ SELECT
 ```
 
 ![Screenshot](/assets/pivot.png?raw=true "pivot")
+
+</details>

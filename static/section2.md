@@ -1,48 +1,38 @@
-## ⭐ SQL SERVER ⭐
+## ⭐ <span style="color: #0063B2FF;">SQL SERVER - SECTION 2</span>⭐
 
-This repository contains the notes of the advanced SQL tutorial: **The Advanced SQL Server Masterclass For Data Analysis** from **FreeCodeCamp** and **Developedbyed** on Youtube, as well as individual capstone projects by using the following languages **HTML5, Sass, CSS3, Tailwindcss, JavaScript, NodeJs, Django, React and Redux**.
+## 🔗 <span style="color: #0063B2FF;">WINDOW FUNCTIONS</span>
 
-Here's a look at just some of the things you'll get out of this course:
+Window functions operate on a set of rows and return a single value for each row from the underlying query. The term <b style="color: #ee6c4d;">window</b> describes the set of rows on which the function operates. A <b style="color: #ee6c4d;">window function</b> uses values from the rows in a window to calculate the returned values.
 
-- Make the leap to Senior Analyst by mastering advanced data wrangling techniques with SQL
-- Become the resident SQL expert on your team
-- Perform nuanced analysis of large datasets with Window Functions
-- Use subqueries, CTEs and temporary tables to handle complex, multi-stage queries and data transformations
-- Write efficient, optimized SQL
-- Leverage indexes to speed up your SQL queries
-- Supercharge your SQL knowledge with procedural programming techniques like variables and IF statements
-- Program database objects like user defined functions and stored procedures that will make life easier for you AND your teammates
-- Master useful tips and tricks not found in most database courses, like Dynamic SQL
-- Gain an intuition for what technique to apply and when
-- Train your brain with tons of hands-on exercises that reflect real-world business scenarios
+<details>
+ <summary><h3 style="color: #0063B2FF;">1. OVER()</h3>
 
-## 🔗 Window functions:
+The `OVER()` clause (window definition) differentiates window functions from other analytical and reporting functions. A query can include multiple window functions with the same or different window definitions.
 
-Window functions operate on a set of rows and return a single value for each row from the underlying query. The term **window** describes the set of rows on which the function operates. A window function uses values from the rows in a window to calculate the returned values.
+The `OVER()` clause has the following capabilities:
 
-### 1. OVER()
-
-The <b>OVER()</b> clause (window definition) differentiates window functions from other analytical and reporting functions. A query can include multiple window functions with the same or different window definitions.
-
-The OVER() clause has the following capabilities: Defines **window partitions** to form groups of rows (PARTITION BY clause).
-Orders rows within a partition (ORDER BY clause).
+- Defines window partitions to form groups of rows (`PARTITION BY` clause).
+- Orders rows within a partition (`ORDER BY` clause).
 
 Aggregate function that can be used on window functions:
-AVG()
-COUNT()
-CUME_DIST()
-DENSE_RANK()
-FIRST_VALUE()
-LAG()
-LAST_VALUE()
-LEAD()
-MAX()
-MIN()
-NTILE()
-PERCENT_RANK()
-RANK()
-ROW_NUMBER()
-SUM()
+
+- `COUNT()`
+- `AVG()`
+- `SUM()`
+- `MAX()`
+- `MIN()`
+- `FIRST_VALUE()`
+- `LAST_VALUE()`
+- `CUME_DIST()`
+- `LAG()`
+- `LEAD()`
+- `ROW_NUMBER()`
+- `RANK()`
+- `DENSE_RANK()`
+- `PERCENT_RANK()`
+- `NTILE()`
+
+</summary>
 
 ```sql
 SELECT
@@ -61,9 +51,14 @@ SELECT
 
 ![Screenshot](/assets/over.png?raw=true "over")
 
-### 2. PARTITION()
+</details>
 
-**PARTITION BY** expr_list PARTITION BY is an optional clause that subdivides the data into partitions. Including the partition clause divides the query result set into partitions, and the window function is applied to each partition separately. Computation restarts for each partition. If you do not include a partition clause, the function calculates on the entire table or file.
+<details>
+ <summary><h3 style="color: #0063B2FF;">2. PARTITION()</h3>
+
+`PARTITION BY` is an optional clause inside the `OVER()` clause that <span style="color: #ee6c4d;">subdivides the data into partitions</span>. Including the partition clause divides the query result set into partitions, and the window function is applied to each partition separately. Computation restarts for each partition. If you do not include a partition clause, the function calculates on the entire table or file.
+
+</summary>
 
 ```sql
 SELECT
@@ -80,13 +75,19 @@ SELECT
             ON A.ProductSubcategoryID = B.ProductSubCategoryID
         JOIN AdventureWorks2019.Production.ProductCategory C
             ON B.ProductCategoryID = C.ProductCategoryID
+
 ```
 
 ![Screenshot](/assets/partition.png?raw=true "partition")
 
-### 3. RANKING: ROW_NUMBER()
+</details>
 
-The ROW_NUMBER window function determines the ordinal number of the current row within its partition. The ORDER BY expression in the OVER clause determines the number. Each value is ordered within its partition. Rows with equal values for the ORDER BY expressions receive different row numbers non-deterministically.
+<details>
+ <summary><h3 style="color: #0063B2FF;">3. RANKING WINDOW: ROW_NUMBER()</h3>
+
+The `ROW_NUMBER()` window function determines the ordinal number of the current row within its partition. The `ORDER BY` expression in the `OVER()` clause determines the number. Each value is ordered within its partition. Rows with equal values for the `ORDER BY` expressions receive different row numbers non-deterministically.
+
+</summary>
 
 ```sql
 SELECT
@@ -113,11 +114,18 @@ SELECT
 
 ![Screenshot](/assets/row_number.png?raw=true "row number")
 
-### 4. RANKING WINDOW: RANK() DENSE_RANK() PERCENT_RANK() NTILE() CUME_DIST()
+</details>
 
-The **RANK()** window function determines the rank of a value in a group of values. The ORDER BY expression in the OVER clause determines the value. Each value is ranked within its partition. Rows with equal values for the ranking criteria receive the same rank. Drill adds the number of tied rows to the tied rank to calculate the next rank and thus the ranks might not be consecutive numbers. For example, if two rows are ranked 1, the next rank is 3. The DENSE_RANK window function differs in that no gaps exist if two or more rows tie.
+<details>
+ <summary><h3 style="color: #0063B2FF;">4. RANKING WINDOW: RANK(), DENSE_RANK()</h3>
 
-The **DENSE_RANK()** window function determines the rank of a value in a group of values based on the ORDER BY expression and the OVER clause. Each value is ranked within its partition. Rows with equal values receive the same rank. There are no gaps in the sequence of ranked values if two or more rows have the same rank.
+The `RANK()` window function determines the rank of a value in a group of values. The `ORDER BY` expression in the `OVER()` clause determines the value. Each value is ranked within its partition. Rows with equal values for the ranking criteria receive the same rank. Drill adds the number of tied rows to the tied rank to calculate the next rank and thus the ranks might not be consecutive numbers.
+<br>
+For example, if two rows are ranked 1, the next rank is 3. The `DENSE_RANK()` window function differs in that no gaps exist if two or more rows tie.
+
+The `DENSE_RANK()` window function determines the rank of a value in a group of values based on the `ORDER BY` expression and the `OVER()` clause. Each value is ranked within its partition. Rows with equal values receive the same rank. There are no gaps in the sequence of ranked values if two or more rows have the same rank.
+
+</summary>
 
 ```SQL
 SELECT
@@ -146,11 +154,16 @@ SELECT
 
 ![Screenshot](/assets/rank.png?raw=true "rank")
 
-### 5. VALUE WINDOW: LEAD() LAG() FIRST_VALUE() LAST_VALUE()
+</details>
 
-The **LAG()** window function returns the value for the row before the current row in a partition. If no row exists, null is returned.
+<details>
+ <summary><h3 style="color: #0063B2FF;">5. VALUE WINDOW: LEAD(), LAG(), FIRST_VALUE(), LAST_VALUE()</h3>
 
-The **LEAD()** window function returns the value for the row after the current row in a partition. If no row exists, null is returned.
+The `LAG()` window function returns the value for the <b style="color: #ee6c4d;">row before the current row</b> in a partition. If no row exists, null is returned.
+
+The `LEAD()` window function returns the value for the <b style="color: #ee6c4d;">row after the current row</b> in a partition. If no row exists, null is returned.
+
+</summary>
 
 ```sql
 SELECT
@@ -176,10 +189,15 @@ SELECT
 
 ![Screenshot](/assets/lead.png?raw=true "lead")
 
-### 6. SUB-QUERIES
+</details>
 
-A **subquery** is a query that is nested inside a SELECT, INSERT, UPDATE, or DELETE statement, or inside another subquery.
-Usually when the first query has window functions and requires some conditions such as WHERE clauses.
+<details>
+ <summary><h3 style="color: #0063B2FF;">6. SUB-QUERIES</h3>
+
+A <b style="color: #ee6c4d;">subquery</b> is a query that is nested inside a `SELECT`, `INSERT`, `UPDATE`, or `DELETE` statement, or inside another subquery.
+Usually when the first query has window functions and requires some conditions such as `WHERE` clauses.
+
+</summary>
 
 ```sql
 SELECT
@@ -206,3 +224,5 @@ SELECT
     -- Windowed functions can only appear in the SELECT or ORDER BY clauses.
     WHERE AllTop3PurchaseOrderRank <= 3
 ```
+
+</details>
